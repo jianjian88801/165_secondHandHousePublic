@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.NewsDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.NewsEntity" id="newsMap">
+        <result property="title" column="title"/>
+        <result property="introduction" column="introduction"/>
+        <result property="picture" column="picture"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.NewsView" >
+
+		SELECT  news.* FROM news  news 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.NewsView" >
+		SELECT * FROM news  news <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>

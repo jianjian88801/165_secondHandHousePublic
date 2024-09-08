@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.MaijiaDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.MaijiaEntity" id="maijiaMap">
+        <result property="maijiazhanghao" column="maijiazhanghao"/>
+        <result property="mima" column="mima"/>
+        <result property="maijiaxingming" column="maijiaxingming"/>
+        <result property="touxiang" column="touxiang"/>
+        <result property="xingbie" column="xingbie"/>
+        <result property="maijiadianhua" column="maijiadianhua"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.MaijiaView" >
+
+		SELECT  maijia.* FROM maijia  maijia 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.MaijiaView" >
+		SELECT * FROM maijia  maijia <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.ErshoufangxinxiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.ErshoufangxinxiEntity" id="ershoufangxinxiMap">
+        <result property="fangwumingcheng" column="fangwumingcheng"/>
+        <result property="fangwutupian" column="fangwutupian"/>
+        <result property="fangwuhuxing" column="fangwuhuxing"/>
+        <result property="fangwumianji" column="fangwumianji"/>
+        <result property="fangwudizhi" column="fangwudizhi"/>
+        <result property="fangwujiage" column="fangwujiage"/>
+        <result property="fangwujieshao" column="fangwujieshao"/>
+        <result property="maijiazhanghao" column="maijiazhanghao"/>
+        <result property="maijiaxingming" column="maijiaxingming"/>
+        <result property="maijiadianhua" column="maijiadianhua"/>
+        <result property="storeupnum" column="storeupnum"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.ErshoufangxinxiView" >
+
+		SELECT  ershoufangxinxi.* FROM ershoufangxinxi  ershoufangxinxi 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.ErshoufangxinxiView" >
+		SELECT * FROM ershoufangxinxi  ershoufangxinxi <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>
